@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Listagem de Veículos{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Lista de Veículos Cadastrados</h2>
+    <div class="row">
+        {% for veiculo in veiculos %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if veiculo.foto %}
+                <!-- <img src="{{ veiculo.foto.url }}" class="card-img-top" alt="Foto do {{ veiculo.modelo }}"> -->
+                {% else %}
+                <!-- <img src="{% static 'img/no-image.png' %}" class="card-img-top" alt="Sem imagem disponível"> -->
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ veiculo.marca }} - {{ veiculo.modelo }}</h5>
+                    <p class="card-text"><strong>Cor:</strong> {{ veiculo.cor }}</p>
+                    <p class="card-text"><strong>Combustível:</strong> {{ veiculo.combustivel }}</p>
+                    <p class="card-text"><strong>Ano:</strong> {{ veiculo.ano }}</p>
+                    <p class="card-text"><strong>ID:</strong> {{ veiculo.id }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">Nenhum veículo cadastrado.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
