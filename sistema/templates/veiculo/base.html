@@ -7,35 +7,43 @@
     <title>{% block title %}Meu Sistema{% endblock %}</title>
     <!-- Link para o Bootstrap CSS -->
     <link type="text/css" rel="stylesheet" href="{% static 'bootstrap-5.3.3/css/bootstrap.css' %}">
-    <script type="text/javascript" src="{% static 'bootstrap-5.3.3/js/bootstrap.js' %}"></script>
     <style>
         body {
-            background-color: lightblue;
+            background-color: #805fad;
         }
         .navbar {
             margin-bottom: 20px;
         }
+        .navbar-brand {
+            margin-left: 10px; /* Adiciona um pequeno espaço à esquerda */
+        }
+        .highlight {
+        color: purple; /* Define a cor roxa */
+    }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Meu Sistema</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#"> <span class="highlight">Decepticons</span> - Os únicos que você deve obedecer</a>
+        <button class="navbar-toggler ms-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    <a class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'cadastro_veiculos' %}">Cadastro de Veículos</a>
+                    <a class="nav-link" href="{% url 'criar-veiculos' %}">Cadastro de Veículos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'listagem_veiculos' %}">Listagem de Veículos</a>
+                    <a class="nav-link" href="{% url 'Listar-veiculos' %}">Meus Veículos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link">Perfil</a>
+                </li>
+                <li class="nav-item"></li>
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
             </ul>
         </div>

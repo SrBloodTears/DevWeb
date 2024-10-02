@@ -20,10 +20,8 @@ OPCOES_CORES = (
 )
 
 OPCOES_COMBUSTIVEIS = (
-    (1, 'GASOLINA COMUM'),
-    (2, 'ETANOL'),
-    (3, 'AZUL'),
-    (4, 'DIESEL'),
-    (5, 'PRETO'),
-    (6, 'VERMELHO')
+    (1, 'ETANOL'),
+    (2, 'FLEX'),
+    (3, 'DIESEL'),
+    (4, 'GASOLINA'),
 )

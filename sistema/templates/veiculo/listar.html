@@ -1,25 +1,50 @@
-{% extends 'base.html' %}
+{% extends 'veiculo/base.html' %}
+{% load static %}
 
 {% block title %}Listagem de Veículos{% endblock %}
 
 {% block content %}
+
+<style>
+    .card {
+        border: 1px solid #000; /* Define uma borda preta */
+    }
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+</style>
+
 <div class="container mt-5">
     <h2 class="text-center mb-4">Lista de Veículos Cadastrados</h2>
+
     <div class="row">
+        
         {% for veiculo in veiculos %}
+        
         <div class="col-md-4 mb-4">
-            <div class="card h-100">
+            <div class="shadow card h-100">
+
+                
                 {% if veiculo.foto %}
-                <!-- <img src="{{ veiculo.foto.url }}" class="card-img-top" alt="Foto do {{ veiculo.modelo }}"> -->
+                <img src="{{ veiculo.foto.url }}" class="card-img-top" alt="Foto do {{ veiculo.modelo }}">
                 {% else %}
-                <!-- <img src="{% static 'img/no-image.png' %}" class="card-img-top" alt="Sem imagem disponível"> -->
+                Veiculo sem foto
                 {% endif %}
+                
                 <div class="card-body">
                     <h5 class="card-title">{{ veiculo.marca }} - {{ veiculo.modelo }}</h5>
                     <p class="card-text"><strong>Cor:</strong> {{ veiculo.cor }}</p>
                     <p class="card-text"><strong>Combustível:</strong> {{ veiculo.combustivel }}</p>
                     <p class="card-text"><strong>Ano:</strong> {{ veiculo.ano }}</p>
                     <p class="card-text"><strong>ID:</strong> {{ veiculo.id }}</p>
+
+                    <!-- Botões de editar e deletar -->
+                    <div class="btn-container">
+                        <button class="btn btn-primary">Editar</button>
+                        <button class="btn btn-danger">Deletar</button>
+                    </div>
                 </div>
             </div>
         </div>

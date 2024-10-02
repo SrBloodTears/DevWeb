@@ -1,0 +1,56 @@
+{% extends 'veiculo/base.html' %}
+{% load static %}
+
+{% block title %}Criar Veículo{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Cadastrar Novo Veículo</h2>
+    <form action="/veiculo/novo/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="row g-3">
+            <!-- Marca -->
+            <div class="col-md-6">
+                <label for="marca" class="form-label">Marca</label>
+                {{ form.marca }}
+            </div>
+
+            <!-- Modelo -->
+            <div class="col-md-6">
+                <label for="modelo" class="form-label">Modelo</label>
+                {{ form.modelo }}
+            </div>
+
+            <!-- Cor -->
+            <div class="col-md-6">
+                <label for="cor" class="form-label">Cor</label>
+                {{ form.cor }}
+            </div>
+
+            <!-- Combustível -->
+            <div class="col-md-6">
+                <label for="combustivel" class="form-label">Combustível</label>
+                {{ form.combustivel }}
+            </div>
+
+            <!-- Ano -->
+            <div class="col-md-6">
+                <label for="ano" class="form-label">Ano</label>
+                {{ form.ano }}
+            </div>
+
+            <!-- Foto -->
+            <div class="col-md-6">
+                <label for="foto" class="form-label">Foto</label>
+                {{ form.foto }}
+            </div>
+        </div>
+
+        <!-- Botão de enviar -->
+        <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
