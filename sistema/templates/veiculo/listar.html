@@ -34,16 +34,16 @@
                 {% endif %}
                 
                 <div class="card-body">
-                    <h5 class="card-title">{{ veiculo.marca }} - {{ veiculo.modelo }}</h5>
-                    <p class="card-text"><strong>Cor:</strong> {{ veiculo.cor }}</p>
-                    <p class="card-text"><strong>Combustível:</strong> {{ veiculo.combustivel }}</p>
-                    <p class="card-text"><strong>Ano:</strong> {{ veiculo.ano }}</p>
+                    <h5 class="card-title">{{ veiculo.get_marca_display }} - {{ veiculo.modelo }}</h5>
+                    <p class="card-text"><strong>Cor:</strong> {{ veiculo.get_cor_display }}</p>
+                    <p class="card-text"><strong>Combustível:</strong> {{ veiculo.get_combustivel_display }}</p>
+                    <p class="card-text"><strong>Ano:</strong> {{ veiculo.get_ano_date }}</p>
                     <p class="card-text"><strong>ID:</strong> {{ veiculo.id }}</p>
 
                     <!-- Botões de editar e deletar -->
                     <div class="btn-container">
-                        <button class="btn btn-primary">Editar</button>
-                        <button class="btn btn-danger">Deletar</button>
+                        <a href="/veiculo/{{veiculo.id}}/" ><i class="fa fa-edit"></i>></a>
+                        <a class="btn btn-danger" href="/veiculo/deletar/{{iv.d}}" > </a>
                     </div>
                 </div>
             </div>

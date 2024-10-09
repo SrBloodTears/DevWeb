@@ -1,16 +1,12 @@
 {% extends 'veiculo/base.html' %}
 {% load static %}
 
-{% block title %}Criar Veículo{% endblock %}
+{% block title %}Edição do veículo{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Cadastrar Novo Veículo</h2>
 
-    <!-- Formulario com borda, padding e sombra -->
-    <div class="card p-4 shadow-lg">
-        <form action="/veiculo/novo/" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+<form action="/veiculo/{{object.pk}}/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
 
             <div class="row g-3">
                 <!-- Marca -->
@@ -76,13 +72,8 @@
 
             <div class="d-flex justify-content-center mt-5">
                 <button type="submit" class="btn btn-success btn-lg">
-                    <i class="fas fa-check-circle"></i> Cadastrar
+                    <i class="fas fa-check-circle"></i> Atualizar
                 </button>
             </div>
-        </form>
-    </div>
-</div>
 
-<!-- FontAwesome para adicionar ícones -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 {% endblock %}
