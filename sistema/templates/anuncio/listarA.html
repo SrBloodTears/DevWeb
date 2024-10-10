@@ -1,0 +1,55 @@
+{% extends 'veiculo/base.html' %}
+{% load static %}
+
+{% block title %}Listagem de Anúncios{% endblock %}
+
+{% block content %}
+
+<style>
+    .card {
+        border: 1px solid #000; /* Define uma borda preta */
+    }
+    .btn-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Lista de Anúncios Cadastrados</h2>
+
+    <div class="row">
+        
+        {% for anuncio in anuncios %}
+        
+        <div class="col-md-4 mb-4">
+            <div class="shadow card h-100">
+
+                {% if veiculo.foto %}
+                <img src="{{ anuncio.foto.url }}" class="card-img-top" alt="Foto do anuncio do {{ anuncio.veiculo }}">
+                {% else %}
+                Anúncio sem foto
+                {% endif %}
+                
+                <div class="card-body">
+                    <h5 class="card-title">{{ anuncio.descricao }}</h5>
+                    <p class="card-text"><strong>Automóvel:</strong> {{ anuncio.veiculo }}</p>
+                    <p class="card-text"><strong>Preço:</strong> {{ anuncio.preco }}</p>
+                    <p class="card-text"><strong>Dono:</strong> {{ anuncio.usuario }}</p>
+                    <p class="card-text"><strong>ID:</strong> {{ anuncio.id }}</p>
+
+                    <!-- Botões de editar e deletar -->
+                    <div class="btn-container">
+                        <a href="/anuncio/{{anuncio.id}}/" ><i class="fa fa-edit"></i>></a>
+                        <a class="btn btn-danger" href="/anuncio/deletarA/{{anuncio.id}}" > </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">Nenhum anúncio cadastrado.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

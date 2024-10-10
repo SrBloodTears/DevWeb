@@ -5,6 +5,9 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 <style>
     .card {
         border: 1px solid #000; /* Define uma borda preta */
@@ -41,9 +44,13 @@
                     <p class="card-text"><strong>ID:</strong> {{ veiculo.id }}</p>
 
                     <!-- Botões de editar e deletar -->
-                    <div class="btn-container">
-                        <a href="/veiculo/{{veiculo.id}}/" ><i class="fa fa-edit"></i>></a>
-                        <a class="btn btn-danger" href="/veiculo/deletar/{{veiculo.id}}" > </a>
+                    <div class="d-flex justify-content-between">
+                        <a href="/veiculo/{{veiculo.id}}/" class="btn btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a href="/veiculo/deletar/{{veiculo.id}}" class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </a>
                     </div>
                 </div>
             </div>
