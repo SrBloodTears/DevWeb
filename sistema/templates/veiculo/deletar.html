@@ -1,0 +1,18 @@
+{% extends 'veiculo/base.html' %}
+{% load static %}
+
+{% block title %}Listagem de Veículos{% endblock %}
+
+{% block content %}
+<form action="/veiculo/deletar/{{object.pk}}" method="post">
+    {% csrf_token %}
+
+    <center>
+        <div class="alert alert-danger" role="alert">
+            <p>Tem certeza que deseja deletar o veículo "{{ object }}" ?</p>
+        </div>
+
+        <input type="submit" value="Confirmar" class="btn btn-danger" />
+    </center>
+</form>
+{% endblock %}

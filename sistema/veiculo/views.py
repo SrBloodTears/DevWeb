@@ -1,6 +1,6 @@
 from django.views.generic import View
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from veiculo.models import Veiculo
 from django.http import FileResponse, Http404
 from django.core.exceptions import ObjectDoesNotExist
@@ -32,6 +32,14 @@ class EditarVeiculos(LoginRequiredMixin, UpdateView):
     model = Veiculo
     form_class = FormularioVeiculo
     template_name = 'veiculo/editar.html'
+    success_url = reverse_lazy('listar-veiculos')
+
+class DeletarVeiculos(LoginRequiredMixin, DeleteView):
+    """
+    View para a exclusão de veiculos
+    """
+    model = Veiculo
+    template_name = 'veiculo/deletar.html'
     success_url = reverse_lazy('listar-veiculos')
 
 class FotoVeiculo(View):
