@@ -8,4 +8,4 @@ class FormularioAnuncio(ModelForm):
 
     class Meta:
         model = Anuncio
-        exclude = []
+        exclude = ['usuario']

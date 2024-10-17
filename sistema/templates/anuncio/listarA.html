@@ -26,8 +26,8 @@
         <div class="col-md-4 mb-4">
             <div class="shadow card h-100">
 
-                {% if veiculo.foto %}
-                <img src="{{ anuncio.foto.url }}" class="card-img-top" alt="Foto do anuncio do {{ anuncio.veiculo }}">
+                {% if anuncio.foto %}
+                <img src="{{ anuncio.foto.url }}" class="card-img-top" alt="Foto do veiculo">
                 {% else %}
                 Anúncio sem foto
                 {% endif %}

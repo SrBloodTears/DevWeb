@@ -6,6 +6,7 @@
 {% block content %}
 
 <form action="/anuncio/{{object.pk}}/" method="post" enctype="multipart/form-data">
+
     {% csrf_token %}
 
             <div class="row g-3">

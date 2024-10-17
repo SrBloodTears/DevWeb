@@ -24,6 +24,10 @@ class CriarAnuncios(LoginRequiredMixin, CreateView):
     template_name = 'anuncio/novoA.html'
     success_url = reverse_lazy('listar-anuncios')
 
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user  # Atribui o usuário logado
+        return super().form_valid(form)
+
 class EditarAnuncios(LoginRequiredMixin, UpdateView):
     """
     View para a edição de anuncios já cadastrados
