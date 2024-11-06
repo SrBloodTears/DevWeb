@@ -7,6 +7,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from veiculo.form import FormularioVeiculo
+from veiculo.serializers import SerializadorVeiculo
+from rest_framework.generics import ListAPIView
+from rest_framework import permissions
+from rest_framework.authentication import TokenAuthentication
 
 class ListarVeiculos(LoginRequiredMixin, ListView):
     """
@@ -55,3 +59,15 @@ class FotoVeiculo(View):
             raise Http404("Foto não encontrada ou acesso não-autorizado!")
         except Exception as exception:
             raise exception
+        
+class APIListarVeiculos(ListAPIView):
+    """
+    View para listar instancias de veiculos (por meio da API Rest)
+    """
+    serializer_class = SerializadorVeiculo
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+
+    def get_queryset(self):
+        return Veiculo.objects.all()

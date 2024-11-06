@@ -23,5 +23,5 @@ OPCOES_COMBUSTIVEIS = (
     (1, 'ETANOL'),
     (2, 'FLEX'),
     (3, 'DIESEL'),
-    (4, 'GASOLINA'),
+    (4, 'GASOLINA')
 )
