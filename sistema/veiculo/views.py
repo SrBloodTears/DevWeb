@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from veiculo.form import FormularioVeiculo
 from veiculo.serializers import SerializadorVeiculo
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, DestroyAPIView
 from rest_framework import permissions
 from rest_framework.authentication import TokenAuthentication
 
@@ -68,6 +68,18 @@ class APIListarVeiculos(ListAPIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [permissions.IsAuthenticated]
 
+
+    def get_queryset(self):
+        return Veiculo.objects.all()
+    
+
+class APIDeletarVeiculos(DestroyAPIView):
+    """
+    View para deletar instâncias de veículos (por meio da API REST)
+    """
+    serializer_class = SerializadorVeiculo
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Veiculo.objects.all()

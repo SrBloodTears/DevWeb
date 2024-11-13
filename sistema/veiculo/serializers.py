@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from veiculo.models import Veiculo
+from drf_extra_fields.fields import Base64ImageField
 
 
 class SerializadorVeiculo(serializers.ModelSerializer):
@@ -9,6 +10,7 @@ class SerializadorVeiculo(serializers.ModelSerializer):
     nome_marca = serializers.SerializerMethodField()
     nome_cor = serializers.SerializerMethodField()
     nome_combustivel = serializers.SerializerMethodField()
+    foto = Base64ImageField(required=False, represent_in_base64=True)
 
     class Meta:
         model = Veiculo

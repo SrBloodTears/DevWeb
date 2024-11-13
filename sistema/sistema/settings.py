@@ -137,3 +137,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_EXPOSE_HEADERS = ['Content-Type', 'Authorization']
